@@ -7,10 +7,11 @@
 </head>
 <body>
 <% if (user) { %>
-<h1>Welcome to the app, <%= user.username %>!</h1>
+<h1>Welcome to the Recipe Hub, <%= user.username %>!</h1>
 <a href="/auth/sign-out">Sign out</a>
 <% } else { %>
-<h1>Welcome to the app, guest.</h1>
+<h1>Welcome to the Recipe Hub, guest.</h1>
+<p>People cook with inspiration, and great recipes start with what they see. Our Recipe Hub makes it easy to discover and try new dishes through beautiful, mouthwatering photos that guide your cooking journey step by step.</p>
 <p>
   <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">sign in</a>.
 </p>
