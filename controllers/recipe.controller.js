@@ -10,17 +10,18 @@ router.get('/new', isSignedIn , (req, res) => {
 router.post('/', isSignedIn, async (req, res) => {
     try {
         req.body.owner = req.session.user._id;
-        console.log(req.body)
+        console.log(req.body);
         await Recipes.create(req.body);
-        res.redirect('/recipes')
+        res.redirect('/recipes');
     } catch (error) {
         console.log(error);
-        res.send('Something went wrong')
+        res.send('Something went wrong');
     }
 })
 
-router.get('/', (req, res) => {
-    res.send('do i work?')
+router.get('/', async (req, res) => {
+    const foundRecipes = await Recipes.find();
+    res.render('recipes/index.ejs', { foundRecipes: foundRecipes});
 })
 
 module.exports = router;
