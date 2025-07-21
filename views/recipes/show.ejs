@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= foundRecipe.title %></title>
+</head>
+<body>
+    <a href="/recipes/new">Add a Recipe</a>
+    <a href="/recipes/">All Recipes</a>
+    <h1><%= foundRecipe.title %></h1>
+    <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" >
+    <p><%= foundRecipe.instructions %></p>
+    <p><%= foundRecipe.ingredients %></p>
+    <% if(foundRecipe.owner._id.equals(user._id)) { %>
+        <form action="/recipes/<%= foundRecipe._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        
+        <button>update</button>
+    <% } %>
+</body>
+</html>

@@ -24,4 +24,25 @@ router.get('/', async (req, res) => {
     res.render('recipes/index.ejs', { foundRecipes: foundRecipes});
 })
 
+router.get('/:recipeId', async (req, res) => {
+    try {
+        const foundRecipe = await Recipes.findById(req.params.recipeId).populate('owner');
+        console.log(foundRecipe)
+        res.render('recipes/show.ejs', { foundRecipe: foundRecipe });
+    
+    } catch (error) {
+        console.log(error);
+        res.send('Something went wrong');
+    }
+})
+
+router.delete('/:recipeId', async (req, res) => {
+    const foundRecipe = await Recipes.findById(req.params.recipeId).populate('owner');
+
+    if(foundRecipe.owner._id.equals(req.session.user._id)) {
+        await foundRecipe.deleteOne();
+        return res.redirect('/recipes');
+    }
+    return res.send('Not authorized');
+})
 module.exports = router;

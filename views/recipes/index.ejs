@@ -9,8 +9,8 @@
     <h1>Recipes</h1>
     <% foundRecipes.forEach(recipe => { %>
     <img src="<% recipe.img %>" alt="Image of <%= recipe.title %>" >
-    <h3><%= recipe.title %></h3> 
+    <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.title %></h3></a>
     <% }) %>
-    <a href="recipes/new"><button>Add a Recipe</button></a>
+    <a href="/recipes/new"><button>Add a Recipe</button></a>
 </body>
 </html>
