@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 // ROUTES
 app.use('/auth', authController)
-app.use('/recipe', recipeController)
+app.use('/recipes', recipeController)
 
 app.get('/vip-lounge', isSignedIn, (req, res) => {
     res.send(`Welcome ✨`)

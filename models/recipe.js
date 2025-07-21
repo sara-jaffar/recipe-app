@@ -6,9 +6,6 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
-
-    category: String, // may remove it
-    description: String, // may remove it
     instructions: {
         type: String,
         required: true

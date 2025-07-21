@@ -8,17 +8,17 @@
 </head>
 <body>
     <h1>Add a Recipe</h1>
-
-    <form>
-        <label for="name">Name: </label>
-        <input type="text" id="name" required>
+    <form action="/recipes" method="POST">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" required>
         <label for="instructions">Instructions: </label>
         <textarea name="instructions" id="instructions" required></textarea>
         <label for="ingredients">Ingredients: </label>
         <textarea name="ingredients" id="ingredients" required></textarea>
         <label for="img">Image: </label>
-        <input type="text" id="img">
+        <input type="text" name="img" id="img"> 
+        <button type="submit">Add Recipe</button>
     </form>
-    <button type="submit">Add Recipe</button>
+   
 </body>
 </html>
