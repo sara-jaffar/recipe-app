@@ -20,7 +20,8 @@ const recipeSchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    img: String,
 }, { timestamps: true })
 
 module.exports = mongooes.model('Recipe', recipeSchema);
