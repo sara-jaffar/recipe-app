@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title> <%= foundRecipe.title %></title>
 </head>
 <body>
     <a href="/recipes/new">Add a Recipe</a>
     <a href="/recipes/">All Recipes</a>
     <h1><%= foundRecipe.title %></h1>
-    <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" >
+    <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" class="index-img">
     <h3>Instructions</h3>
     <p><%= foundRecipe.instructions %></p>
     <h3>Ingredients</h3>
@@ -21,6 +23,16 @@
         
         <a href="/recipes/<%= foundRecipe._id %>/edit"><button type="submit">update</button></a>
     <% } %>
+
+    <% const isFavorited = favorites.some(fav =>
+        fav.recipe.toString() === foundRecipe._id.toString()
+    ); %>
+
+    <form action="/recipes/<%= foundRecipe._id %>/favorite" method="POST">
+        <button type="submit" id="favBtn" class="fav-button <%= isFavorited ? 'liked' : '' %>" data-id="<%= foundRecipe._id %>">
+            <i class="fa-solid fa-heart"></i>
+        </button>
+    </form>
 
     <h3>Leave a Comment</h3>
     <form action="/recipes/<%= foundRecipe._id %>/comments" method="POST">

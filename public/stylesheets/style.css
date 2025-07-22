@@ -1,4 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-image: url('/assets/recipe.png');
+  padding: 20px;
+  font-family: 'Mulish', sans-serif;
+  color: white;
+  font-size: 1.5rem; 
+}
+
+.welcome-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.welcome-page h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-page p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.auth-buttons a button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 35px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0; 
+  margin: 0 8px;
+}
+
+.auth-buttons a button:hover {
+  background-color: #f0f0f0; 
+}
+
+
 form {
     display: flex;
     flex-direction: column;
+}
+
+.fav-button {
+    background: none;
+    max-width: 50px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+  }
+  
+.fav-button.liked i {
+  color: red;
+}
+
+.show-food-img {
+    width: 30%;
+    border-radius: 20px;
+    box-shadow: 5px 5px;
+}
+
+.index-img:hover {
+    box-shadow: 10px 10px rgba(248, 4, 4, 0.406);
 }

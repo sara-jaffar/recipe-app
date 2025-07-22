@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <title>Recipes</title>
 </head>
 <body>
     <h1>Recipes</h1>
+
     <% foundRecipes.forEach(recipe => { %>
-    <img src="<%= recipe.img %>" alt="Image of <%= recipe.title %>" >
+    <a href="/recipes/<%= recipe._id %>"><img src="<%= recipe.img %>" alt="Image of <%= recipe.title %>" class="show-food-img index-img"></a>
     <a href="/recipes/<%= recipe._id %>"><h3><%= recipe.title %></h3></a>
+    <% const isFavorited = favorites.some(fav =>
+        fav.recipe.toString() === recipe._id.toString()
+    ); %>
+    <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+        <button type="submit" id="favBtn" class="fav-button <%= isFavorited ? 'liked' : '' %>" data-id="<%= recipe._id %>">
+            <i class="fa-solid fa-heart"></i>
+        </button>
+    </form>
     <% }) %>
     <a href="/recipes/new"><button>Add a Recipe</button></a>
 </body>

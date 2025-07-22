@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Favorite Recipes</title>
+</head>
+<body>
+    <h1>Favorite Recipes</h1>
+    <ul>
+        <% favorites.forEach(fav => { %>
+            <li>
+                <img src="<%= fav.recipe.img %>" alt="Image of <%= fav.recipe.title %>" >
+                <a href="/recipes/<%= fav.recipe._id %>"><%= fav.recipe.title %></a>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>

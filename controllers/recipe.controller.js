@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Recipes = require('../models/recipe');
+const Favorite = require('../models/favorite');
 const isSignedIn = require('../middleware/is-signed-in');
-const { render } = require('ejs');
+
 
 router.get('/new', isSignedIn , (req, res) => {
     res.render('recipes/new.ejs');
@@ -22,14 +23,22 @@ router.post('/', isSignedIn, async (req, res) => {
 
 router.get('/', async (req, res) => {
     const foundRecipes = await Recipes.find();
-    res.render('recipes/index.ejs', { foundRecipes: foundRecipes});
+    const favorites = await Favorite.find({ user: req.session.user._id });
+
+    res.render('recipes/index.ejs', { foundRecipes: foundRecipes, favorites: favorites });
+})
+
+router.get('/favorites', isSignedIn, async (req, res) => {
+    const favorites = await Favorite.find({ user: req.session.user._id }).populate('recipe');
+
+    res.render('recipes/favorites.ejs', { favorites: favorites });
 })
 
 router.get('/:recipeId', async (req, res) => {
     try {
         const foundRecipe = await Recipes.findById(req.params.recipeId).populate('owner').populate('comments.author');
-        console.log(foundRecipe)
-        res.render('recipes/show.ejs', { foundRecipe: foundRecipe });
+        const favorites = await Favorite.find({ user: req.session.user._id });
+        res.render('recipes/show.ejs', { foundRecipe: foundRecipe , favorites: favorites});
     
     } catch (error) {
         console.log(error);
@@ -74,4 +83,35 @@ router.post('/:recipeId/comments', isSignedIn, async (req, res) => {
     await foundRecipe.save()
     res.redirect(`/recipes/${req.params.recipeId}`);
 })
+
+router.post('/:recipeId/favorite', isSignedIn, async (req, res) => {
+    const userId = req.session.user._id;
+    const recipeId = req.params.recipeId;
+
+    const inFavorite = await Favorite.findOne({ user: userId, recipe: recipeId});
+
+    if(inFavorite) {
+        await inFavorite.deleteOne();
+    } else {
+        await Favorite.create({ user: userId, recipe: recipeId });
+    }
+
+    res.redirect(`/recipes/${recipeId}`);
+})
+
+router.post('/:recipeId/favorites', isSignedIn, async (req, res) => {
+    const userId = req.session.user._id;
+    const recipeId = req.params.recipeId;
+
+    const inFavorite = await Favorite.findOne({ user: userId, recipe: recipeId});
+
+    if(inFavorite) {
+        await inFavorite.deleteOne();
+    } else {
+        await Favorite.create({ user: userId, recipe: recipeId });
+    }
+
+    res.redirect(`/recipes`);
+})
+
 module.exports = router;
