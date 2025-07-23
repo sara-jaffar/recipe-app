@@ -1,6 +1,6 @@
 # 🍲 Recipe Hub
 
-![App Screenshot](../recipe-app/public/assets/screenshot.png)
+![App Screenshot](./public/assets/screenshot.png)
 
 ## 🕹️ Description
 
