@@ -16,12 +16,12 @@
    
     <div class="content-sections">
         <div class="left-section">
-        <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" class="index-img">
-        <div class="instructions-box">
-            <h3>Instructions</h3>
-            <p><%= foundRecipe.instructions %></p>
+            <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" class="index-img">
+            <div class="instructions-box">
+                <h3>Instructions</h3>
+                <p><%= foundRecipe.instructions %></p>
+            </div>
         </div>
-    </div>
     
         <div class="ingredients-box">
             <h3>Ingredients</h3>
@@ -31,7 +31,6 @@
     
     
     <div class="owner-buttons">
-
           <% if(foundRecipe.owner._id.equals(user._id)) { %>
         <form action="/recipes/<%= foundRecipe._id %>?_method=DELETE" method="POST">
             <button type="submit" class="delete-button">Delete</button>
@@ -45,17 +44,16 @@
 
     <div class="comment-section">
         <h3>Leave a Comment</h3>
-    <form action="/recipes/<%= foundRecipe._id %>/comments" method="POST">
-        <textarea name="content"></textarea>
-        <button type="submit">Post Comment</button>
-    </form>
-    <ul>
-        <% foundRecipe.comments.forEach(comment => { %>
+        <form action="/recipes/<%= foundRecipe._id %>/comments" method="POST">
+            <textarea name="content"></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+        <ul>
+            <% foundRecipe.comments.forEach(comment => { %>
             <li><em><%= comment.author.username %></em> - <%= comment.content %> </li>
-        <% }) %>
-    </ul>
+            <% }) %>
+        </ul>
     </div>
-    
 </div>    
    
 </body>
