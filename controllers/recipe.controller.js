@@ -30,8 +30,6 @@ router.get('/', async (req, res) => {
 
 router.get('/favorites', isSignedIn, async (req, res) => {
     const favorites = await Favorite.find({ user: req.session.user._id }).populate('recipe');
-    console.log(favorites);
-
     res.render('recipes/favorites.ejs', { favorites: favorites });
 })
 
