@@ -1,7 +1,19 @@
 <%- include('../partials/head') %>
 
 <div class="show-page">
-    <h1><%= foundRecipe.title %></h1>
+    <div class="show-header">
+         <h1><%= foundRecipe.title %></h1>
+    <% const isFavorited = favorites.some(fav =>
+        fav.recipe.toString() === foundRecipe._id.toString()
+        ); %>
+
+        <form action="/recipes/<%= foundRecipe._id %>/favorite" method="POST">
+            <button type="submit" id="favBtn" class="fav-button <%= isFavorited ? 'liked' : '' %>" data-id="<%= foundRecipe._id %>">
+                <i class="fa-solid fa-heart"></i>
+            </button>
+        </form>
+    </div>
+   
     <div class="content-sections">
         <div class="left-section">
         <img src="<%= foundRecipe.img %>" alt="Image of <%= foundRecipe.title %>" class="index-img">
@@ -19,15 +31,6 @@
     
     
     <div class="owner-buttons">
-        <% const isFavorited = favorites.some(fav =>
-        fav.recipe.toString() === foundRecipe._id.toString()
-        ); %>
-
-        <form action="/recipes/<%= foundRecipe._id %>/favorite" method="POST">
-            <button type="submit" id="favBtn" class="fav-button <%= isFavorited ? 'liked' : '' %>" data-id="<%= foundRecipe._id %>">
-                <i class="fa-solid fa-heart"></i>
-            </button>
-        </form>
 
           <% if(foundRecipe.owner._id.equals(user._id)) { %>
         <form action="/recipes/<%= foundRecipe._id %>?_method=DELETE" method="POST">

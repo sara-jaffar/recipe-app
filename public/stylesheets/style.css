@@ -62,7 +62,6 @@ html, body {
 }
 
 /* form style */
-
 .auth-page {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
@@ -228,13 +227,22 @@ html, body {
 }
 
 /* show page style */
-
 .show-page {
   font-family: 'Mulish', sans-serif;
   margin-left: 100px;
   padding: 30px;
 }
 
+.show-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#favBtn {
+  margin-top: 28px;
+  font-size: 28px;
+}
 
 .content-sections {
   display: flex;
@@ -310,7 +318,6 @@ pre {
 
 
 /* comments section */
-
 .comment-section {
   margin-top: 40px;
   background-color: #fff5ee;
@@ -349,7 +356,6 @@ pre {
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .comment-section button:hover {
