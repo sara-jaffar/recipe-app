@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Favorite Recipes</title>
-</head>
-<body>
+<%- include('../partials/head') %>
+
+<div class="index-page">
     <h1>Favorite Recipes</h1>
-    <ul>
+    <div class="recipe-grid">
         <% favorites.forEach(fav => { %>
-            <li>
-                <img src="<%= fav.recipe.img %>" alt="Image of <%= fav.recipe.title %>" >
-                <a href="/recipes/<%= fav.recipe._id %>"><%= fav.recipe.title %></a>
-            </li>
+            <div class="recipe-card">
+                <a href="/recipes/<%= fav.recipe._id %>"><img src="<%= fav.recipe.img %>" alt="Image of <%= fav.recipe.title %>" ></a>
+                <a href="/recipes/<%= fav.recipe._id %>"><h3><%= fav.recipe.title %></h3></a>
+            </div>  
         <% }) %>
-    </ul>
+    </div>
+</div>
+    
 
 </body>
 </html>
