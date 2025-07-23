@@ -6,17 +6,26 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Add a Recipe</title>
 </head>
-<body>
+<body class="auth-page">
     <h1>Add a Recipe</h1>
-    <form action="/recipes" method="POST">
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" required>
-        <label for="instructions">Instructions: </label>
-        <textarea name="instructions" id="instructions" required></textarea>
-        <label for="ingredients">Ingredients: </label>
-        <textarea name="ingredients" id="ingredients" required></textarea>
-        <label for="img">Image: </label>
-        <input type="text" name="img" id="img"> 
+    <form action="/recipes" method="POST" class="auth-form">
+        <div class="form-group">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div class="form-group">
+            <label for="instructions">Instructions: </label>
+            <textarea name="instructions" id="instructions" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="ingredients">Ingredients: </label>
+            <textarea name="ingredients" id="ingredients" placeholder="Add ingredients separated by commas (e.g., sugar, flour, eggs)" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="img">Image: </label>
+            <input type="text" name="img" id="img"> 
+        </div>
+        
         <button type="submit">Add Recipe</button>
     </form>
    
