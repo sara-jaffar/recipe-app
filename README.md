@@ -9,7 +9,7 @@ Users can browse recipes, view detailed instructions and ingredients, add their 
 
 ## 🚀 Getting Started
 
-👉 **Play it here:** [https://your-deployment-link.com](https://your-deployment-link.com)
+👉 **Play it here:** [https://recipe-project-app-f12d5947cd6d.herokuapp.com/](https://recipe-project-app-f12d5947cd6d.herokuapp.com/)
 
 👉 **Planning Materials:**
 - [Trello Board](https://trello.com/b/2r9gcq7l/project-2)
