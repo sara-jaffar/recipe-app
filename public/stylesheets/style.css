@@ -9,7 +9,6 @@ html, body {
   padding: 0;
 }
 
-/* auth style */
 .welcome-page {
   position: relative;
   display: flex;
@@ -61,7 +60,6 @@ html, body {
   background-color: #f0f0f0; 
 }
 
-/* form style */
 .auth-page {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
@@ -115,7 +113,6 @@ html, body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* sidebar style */
 .sidebar {
   width: 80px;
   background-color: black;
@@ -131,7 +128,6 @@ html, body {
   top: 0;
   bottom: 0;
 }
-
 
 .logo {
   font-family: 'Baloo Bhai 2', sans-serif;
@@ -175,8 +171,6 @@ html, body {
   margin-top: auto;
 }
   
-
-/* index page style */
 .index-page {
   font-family: 'Mulish', sans-serif;
   margin-left: 100px;
@@ -226,7 +220,6 @@ html, body {
   color: red;
 }
 
-/* show page style */
 .show-page {
   font-family: 'Mulish', sans-serif;
   margin-left: 115px;
@@ -317,8 +310,6 @@ pre {
   opacity: 0.9;
 }
 
-
-/* comments section */
 .comment-section {
   margin-top: 40px;
   background-color: #fff5ee;
@@ -347,7 +338,6 @@ pre {
   resize: vertical;
   font-family: 'Mulish', sans-serif;
 }
-
 
 .comment-section button {
   align-self: flex-start;
