@@ -7,19 +7,9 @@
 Recipe Hub is a simple, clean, and user-friendly web app for discovering, sharing, and managing delicious recipes.
 Users can browse recipes, view detailed instructions and ingredients, add their favorite recipes, and leave comments.
 
-## 🚀 Getting Started
-
-👉 **Play it here:** [https://recipe-project-app-f12d5947cd6d.herokuapp.com/](https://recipe-project-app-f12d5947cd6d.herokuapp.com/)
-
 👉 **Planning Materials:**
 - [Trello Board](https://trello.com/b/2r9gcq7l/project-2)
 - [Wireframe](https://www.figma.com/design/q91YBBq82stZrPNKba9Vl9/Recipes-Hub?node-id=5-0&t=ZMQ1ZPkZMWhwIfFy-0)
-
-### How to Play
-1. Open the app link.
-2. Browse recipes.
-3. Click a recipe to see full ingredients and instructions.
-4. Add your own recipes or leave comments on existing ones.
 
 ## 💡 Technologies Used
 
